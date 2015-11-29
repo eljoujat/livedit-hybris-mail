@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<widget xmlns="http://www.zkoss.org/2005/zul"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:h="http://www.w3.org/1999/xhtml"
+		xmlns:w="http://www.zkoss.org/2005/zk/client"
+		xmlns:zk="http://www.zkoss.org/2005/zk"
+		xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd"
+ 		height="100%">
+
+
+	<vlayout>
+		<div sclass="yw-sitelist-container">
+			<label value="Email Pages" class="sitelabel" sclass="yw-context-label" id="maillabel" />
+			<listbox mold="select" rows="1" id="mailList" sclass="yw-sitelist-box"/>
+		</div>
+		<div sclass="yw-catalogversion-container">
+			<label value="Business Process" class="catalogversion-label" sclass="yw-context-label" id="bplabel" />
+			<listbox mold="select" rows="1" id="bpList" sclass="yw-catalogversion-list"/>
+		</div>
+	</vlayout>
+
+</widget>
+

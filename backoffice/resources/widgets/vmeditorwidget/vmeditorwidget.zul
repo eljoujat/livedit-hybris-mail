@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<widget xmlns="http://www.zkoss.org/2005/zul"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:h="http://www.w3.org/1999/xhtml"
+		xmlns:w="http://www.zkoss.org/2005/zk/client"
+		xmlns:zk="http://www.zkoss.org/2005/zk"
+		xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd"
+ 		height="100%">
+	<script src="./cng/js/codemirror.js"/>
+
+	<hlayout width="100%" height="100%" style="border:1px solid black;overflow:auto;">
+
+			<div style="border:1px solid black;overflow:auto;" width="100%">
+				<!--<label id="bodyScript" />-->
+		      <textbox id="bodyScript" rows="150"  onChanging="bodyScriptCode.value = event.value" style="display:none;" >
+
+				  <attribute w:name="setValue">
+					  function (value) {
+					  myCodeMirror.setValue(value);
+					  }
+				  </attribute>
+				</textbox>
+				<label value="Velocity Script" sclass="vmeditor-legend" />
+				<textbox id="bodyScriptCode" rows="250" height="100%">
+					<attribute w:name="bind_"><![CDATA[
+                    function (a, b, c) {
+                        this.$bind_(a, b, c);
+                        var wgt = this;
+                        myCodeMirror = CodeMirror.fromTextArea(this.$n(),{
+                           lineNumbers: true
+                        });
+                        myCodeMirror.on('change', function () {
+                            var val = myCodeMirror.getValue();
+                            wgt.$n().value = val;
+                            wgt.fire('onChange', {value: val}, {toServer: true});
+                        });
+                    }
+                ]]></attribute>
+				</textbox>
+			</div>
+	</hlayout>
+
+</widget>
+

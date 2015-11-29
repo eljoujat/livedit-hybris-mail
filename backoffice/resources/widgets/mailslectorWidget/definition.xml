@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.hybris.com/schema/cockpitng/widget-definition.xsd"
+	id="com.sqli.printemps.widgets.mailselectorwidget">
+	<name>mail selector Sample Widget</name>
+	<description>mailpreview Sample Widget</description>
+	<defaultTitle>mailpreview Sample Widget</defaultTitle>
+	<author>Youssef El Jaoujat</author>
+	<version>1.0</version>
+	<view src="mailselectorwidget.zul" />
+	<keywords>
+		<keyword>mailselector</keyword>
+	</keywords>
+	<controller class="org.yoceflab.hybris.mailpreview.widgets.mailselector.controller.MailselectorController" />
+
+	<sockets>
+		<output id="selectMail" type="org.yoceflab.hybris.mailpreview.widgets.mailselector.data.MailInternalData"/>
+		<input id="site" type="de.hybris.platform.commercesearchbackoffice.data.SiteData"/>
+
+	</sockets>
+</widget-definition>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:noNamespaceSchemaLocation="http://www.hybris.com/schema/cockpitng/widget-definition.xsd"
+                   id="com.sqli.printemps.widgets.search">
+
+       <name>My Search</name>
+       <description>My own search widget.</description>
+       <defaultTitle>Search</defaultTitle>
+       <author>El Jaoujat Youssef</author>
+       <version>0.1</version>
+</widget-definition>

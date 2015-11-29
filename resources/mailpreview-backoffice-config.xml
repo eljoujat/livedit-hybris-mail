@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<config xmlns="http://www.hybris.com/cockpit/config">
+
+	<context component="explorer-tree" principal="employee_role"
+		perspective="mailpreview">
+
+		<n:explorer-tree xmlns:n="http://www.hybris.com/cockpitng/config/explorertree">
+			<n:navigation-node id="Catalog">
+				<n:type-node id="Catalogs" code="Catalog" />
+				<n:type-node id="Categories" code="Category" />
+				<n:type-node id="Products" code="Product" />
+			</n:navigation-node>
+
+			<n:navigation-node id="system">
+				<n:type-node id="Users" code="User" />
+				<n:type-node id="Groups" code="UserGroup" />
+				<n:navigation-node id="Internationalization">
+					<n:type-node id="Country" code="Country" />
+					<n:type-node id="Language" code="Language" />
+					<n:type-node id="Currency" code="Currency" />
+				</n:navigation-node>
+			</n:navigation-node>
+
+			<n:navigation-node id="node 1">
+				<n:navigation-node id="sample 1.1">
+					<n:navigation-node id="sample 1.1.1" />
+				</n:navigation-node>
+				<n:navigation-node id="sample 1.2">
+					<n:navigation-node id="sample 1.2.1" />
+				</n:navigation-node>
+			</n:navigation-node>
+			<n:navigation-node id="sample 2">
+				<n:navigation-node id="sample 2.1" />
+			</n:navigation-node>
+		</n:explorer-tree>
+
+	</context>
+
+	<context component="simple-list" principal="employee_role">
+		<context type="Product">
+			<ysl:simple-list xmlns:ysl="http://www.hybris.com/cockpitng/config/simplelist">
+				<ysl:name field="identifier" />
+				<ysl:description field="description" />
+				<ysl:image field="thumbnail.url" />
+			</ysl:simple-list>
+		</context>
+		<context type="Category">
+			<ysl:simple-list xmlns:ysl="http://www.hybris.com/cockpitng/config/simplelist">
+				<ysl:name field="name" />
+				<ysl:description field="description" />
+			</ysl:simple-list>
+		</context>
+		<context type="Catalog">
+			<ysl:simple-list xmlns:ysl="http://www.hybris.com/cockpitng/config/simplelist">
+				<ysl:name field="id" />
+				<ysl:description field="name" />
+			</ysl:simple-list>
+		</context>
+		<context type="User">
+			<ysl:simple-list xmlns:ysl="http://www.hybris.com/cockpitng/config/simplelist">
+				<ysl:name field="uid" />
+				<ysl:description field="name" />
+			</ysl:simple-list>
+		</context>
+		<context type="UserGroup">
+			<ysl:simple-list xmlns:ysl="http://www.hybris.com/cockpitng/config/simplelist">
+				<ysl:name field="uid" />
+				<ysl:description field="displayName" />
+			</ysl:simple-list>
+		</context>
+		<context type="Country">
+			<ysl:simple-list xmlns:ysl="http://www.hybris.com/cockpitng/config/simplelist">
+				<ysl:name field="name" />
+			</ysl:simple-list>
+		</context>
+		<context type="Language">
+			<ysl:simple-list xmlns:ysl="http://www.hybris.com/cockpitng/config/simplelist">
+				<ysl:name field="name" />
+			</ysl:simple-list>
+		</context>
+		<context type="Currency">
+			<ysl:simple-list xmlns:ysl="http://www.hybris.com/cockpitng/config/simplelist">
+				<ysl:name field="name" />
+			</ysl:simple-list>
+		</context>
+		<context type="EmailPage">
+			<ysl:simple-list xmlns:ysl="http://www.hybris.com/cockpitng/config/simplelist">
+				<ysl:name field="uid" />
+			</ysl:simple-list>
+		</context>
+	</context>
+
+	<context principal="employee_role" component="simple-search">
+		<context type="Product">
+			<yss:simple-search
+				xmlns:yss="http://www.hybris.com/cockpitng/config/simplesearch">
+				<yss:field name="code" />
+				<yss:field name="name" />
+				<yss:sort-field name="code" asc="true" />
+			</yss:simple-search>
+		</context>
+		<context type="Category">
+			<yss:simple-search
+				xmlns:yss="http://www.hybris.com/cockpitng/config/simplesearch">
+				<yss:field name="code" />
+				<yss:field name="name" />
+				<yss:sort-field name="code" asc="true" />
+			</yss:simple-search>
+		</context>
+		<context type="Catalog">
+			<yss:simple-search
+				xmlns:yss="http://www.hybris.com/cockpitng/config/simplesearch">
+				<yss:field name="id" />
+				<yss:field name="name" />
+				<yss:sort-field name="id" asc="true" />
+			</yss:simple-search>
+		</context>
+		<context type="Language">
+			<yss:simple-search
+				xmlns:yss="http://www.hybris.com/cockpitng/config/simplesearch">
+				<yss:field name="isoCode" />
+				<yss:field name="name" />
+				<yss:sort-field name="isoCode" asc="true" />
+			</yss:simple-search>
+		</context>
+		<context type="Currency">
+			<yss:simple-search
+				xmlns:yss="http://www.hybris.com/cockpitng/config/simplesearch">
+				<yss:field name="isoCode" />
+				<yss:field name="name" />
+				<yss:sort-field name="isoCode" asc="true" />
+			</yss:simple-search>
+		</context>
+		<context type="Country">
+			<yss:simple-search
+				xmlns:yss="http://www.hybris.com/cockpitng/config/simplesearch">
+				<yss:field name="isoCode" />
+				<yss:field name="name" />
+				<yss:sort-field name="isoCode" asc="true" />
+			</yss:simple-search>
+		</context>
+		<context type="User">
+			<yss:simple-search
+				xmlns:yss="http://www.hybris.com/cockpitng/config/simplesearch">
+				<yss:field name="uid" />
+				<yss:field name="name" />
+				<yss:sort-field name="uid" asc="true" />
+			</yss:simple-search>
+		</context>
+		<context type="UserGroup">
+			<yss:simple-search
+				xmlns:yss="http://www.hybris.com/cockpitng/config/simplesearch">
+				<yss:field name="uid" />
+				<yss:sort-field name="uid" asc="true" />
+			</yss:simple-search>
+		</context>
+
+		<context type="EmailPage">
+			<yss:simple-search
+					xmlns:yss="http://www.hybris.com/cockpitng/config/simplesearch">
+				<yss:field name="uid" />
+				<yss:sort-field name="uid" asc="true" />
+			</yss:simple-search>
+		</context>
+	</context>
+
+</config>

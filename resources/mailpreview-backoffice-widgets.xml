@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.hybris.com/schema/cockpitng/widgets.xsd">
+
+    <widget-extension widgetId="backofficeMainSlot">
+
+        <widget id="mailpreview-perspective" widgetDefinitionId="com.hybris.cockpitng.borderlayout" slotId="perspectives"
+                template="false" title="Mail Preview">
+            <setting key="perspectiveImageUrl" value="/cng/images/perspective.png"
+                     type="String" />
+        <widget id="navigationContext"
+                widgetDefinitionId="com.hybris.commercesearchbackoffice.navigationcontext" slotId="leftSlot"
+                template="false">
+            <widget id="mailselector-widget" widgetDefinitionId="com.sqli.printemps.widgets.mailselectorwidget"
+                    template="false" slotId="navigationContextArea" title="Hello mailpreview">
+                <setting key="perspectiveImageUrl" value="/cng/images/perspective.png"
+                         type="String" />
+            </widget>
+        </widget>
+
+
+            <widget id="mailpreview-widget" widgetDefinitionId="com.sqli.printemps.widgets.mailpreviewwidget"   slotId="centerSlot"
+                template="false">
+                <setting key="perspectiveImageUrl" value="/cng/images/perspective.png"
+                     type="String" />
+                <setting key="widgetStyleClass" type="String">mailpreview-widget</setting>
+            </widget>
+
+            <widget id="vmeditore-widget" widgetDefinitionId="com.sqli.printemps.widgets.vmeditorwidget"   slotId="rightSlot"
+                    template="false">
+                <setting key="perspectiveImageUrl" value="/cng/images/perspective.png"
+                         type="String" />
+                <setting key="widgetStyleClass" type="String">vmeditor-widget</setting>
+            </widget>
+
+
+         <!--   <setting key="northHeight" type="String">50px</setting>
+            <setting key="northBorder" type="String">none</setting>
+            <setting key="broadcastHorizontalResize" type="Boolean">true</setting>
+            <setting key="eastDisabled" type="Boolean">true</setting>
+            <setting key="eastBorder" type="String">none</setting>
+            <setting key="westCollapsible" type="Boolean">true</setting>
+            <setting key="northCollapsible" type="Boolean">true</setting>
+            <setting key="border" type="String">none</setting>
+            <setting key="centerBorder" type="String">none</setting>
+            <setting key="westDisabled" type="Boolean">false</setting>
+            <setting key="opaqueBG" type="String">true</setting>
+            <setting key="southHeight" type="String">50px</setting>
+            <setting key="widgetStyleAttribute" type="String"></setting>
+            <setting key="westBorder" type="String">none</setting>
+            <setting key="southBorder" type="String">none</setting>
+            <setting key="southDisabled" type="Boolean">true</setting>
+            <setting key="eastWidth" type="String">25%</setting>
+            <setting key="northDisabled" type="Boolean">true</setting>
+            <setting key="widgetStyleClass" type="String"></setting>
+            <setting key="autoCloseWest" type="Boolean">true</setting>
+            <setting key="southCollapsible" type="Boolean">true</setting>
+            <setting key="westWidth" type="String">300px</setting>
+            <setting key="eastCollapsible" type="Boolean">true</setting> -->
+
+        </widget>
+    </widget-extension>
+
+    <widget-connection sourceWidgetId="mailselector-widget" outputId="selectMail" targetWidgetId="mailpreview-widget" inputId="mail"/>
+    <widget-connection sourceWidgetId="mailpreview-widget" outputId="selectVmTemplate" targetWidgetId="vmeditore-widget" inputId="vmTemplate"/>
+    <widget-connection sourceWidgetId="vmeditore-widget" outputId="updateVmTemplate" targetWidgetId="mailpreview-widget" inputId="changevmTemplate"/>
+
+    <widget-connection sourceWidgetId="mailpreview-explorer-tree" outputId="nodeSelected" targetWidgetId="mailpreview-tree-node-adapter" inputId="input"/>
+    <widget-connection sourceWidgetId="mailpreview-tree-node-adapter" outputId="true" targetWidgetId="mailpreview-typecode-extractor" inputId="genericInput"/>
+    <widget-connection sourceWidgetId="mailpreview-tree-node-adapter" outputId="true" targetWidgetId="mailpreview-search-enabler" inputId="genericInput"/>
+    <widget-connection sourceWidgetId="mailpreview-tree-node-adapter" outputId="false" targetWidgetId="mailpreview-search-disabler" inputId="genericInput"/>
+    <widget-connection sourceWidgetId="mailpreview-typecode-extractor" outputId="genericOutput" targetWidgetId="mailpreview-search-logic" inputId="type"/>
+    <widget-connection sourceWidgetId="mailpreview-search-enabler" outputId="genericOutput" targetWidgetId="mailpreview-text-search" inputId="enabled"/>
+    <widget-connection sourceWidgetId="mailpreview-search-disabler" outputId="genericOutput" targetWidgetId="mailpreview-text-search" inputId="enabled"/>
+    <widget-connection sourceWidgetId="mailpreview-text-search" outputId="query" targetWidgetId="mailpreview-search-logic" inputId="searchtext"/>
+    <widget-connection sourceWidgetId="mailpreview-search-logic" outputId="pageable" targetWidgetId="mailpreview-simple-list" inputId="pageable"/>
+
+</widgets>

@@ -1,0 +1,10 @@
+@IMPORT url("login.css");
+
+body {
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAALUlEQVQImWNYtHzHf2S8aceZ/wzoAouW70AIwgTggsgCi5bv+M+ALrBo+Y7/AIsfTAo95vSpAAAAAElFTkSuQmCC) repeat #A2A7B8;
+}
+
+.login_grid {
+    background: url("images/my_bg.png") no-repeat;
+    background-position: 60px 0;
+}

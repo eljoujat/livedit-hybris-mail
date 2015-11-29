@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ [y] hybris Platform
+
+ Copyright (c) 2000-2011 hybris AG
+ All rights reserved.
+
+ This software is the confidential and proprietary information of hybris
+ ("Confidential Information"). You shall not disclose such Confidential
+ Information and shall use it only in accordance with the terms of the
+ license agreement you entered into with hybris.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="mailpreviewService" class="org.yoceflab.hybris.mailpreview.services.MailpreviewService" />
+	
+	<bean id="mailpreviewLabelLocator" class="com.hybris.cockpitng.util.labels.ResourcesLabelLocator" scope="singleton" init-method="init" lazy-init="false">
+  		<property name="location" value="/mailpreview-backoffice-labels/"/>
+  		<property name="name" value="labels"/>
+  	</bean>
+
+
+    <alias name="defaultMailService" alias="mailService"/>
+    <bean id="defaultMailService" class="org.yoceflab.hybris.mailpreview.services.impl.DefaultMailService">
+        <property name="flexibleSearchService" ref="flexibleSearchService" />
+    </bean>
+
+    <alias name="defaultBusinessProcessService" alias="businessProcessService"/>
+    <bean id="defaultBusinessProcessService" class="org.yoceflab.hybris.mailpreview.services.impl.DefaultBusinessProcessService">
+        <property name="flexibleSearchService" ref="flexibleSearchService" />
+    </bean>
+
+    <bean id="emailContextFactory"
+          class="org.yoceflab.hybris.mailpreview.MailPreviewEmailContextFactory">
+        <property name="rendererTemplateDao" ref="rendererTemplateDao"/>
+        <property name="cmsPageService" ref="cmsPageService"/>
+        <property name="cmsComponentService" ref="cmsComponentService"/>
+        <property name="rendererService" ref="rendererService"/>
+        <property name="modelService" ref="modelService"/>
+        <property name="typeService" ref="typeService"/>
+        <property name="emailTemplateTranslationStrategy" ref="emailTemplateTranslationStrategy"/>
+        <property name="siteBaseUrlResolutionService" ref="siteBaseUrlResolutionService"/>
+        <property name="contextResolutionStrategy" ref="processContextResolutionStrategy"/>
+        <property name="emailContextVariables">
+            <map merge="true">
+                <entry key="commonResourceUrl" value="{baseThemeUrl}/_ui/common"/>
+                <entry key="themeResourceUrl" value="{baseThemeUrl}/_ui/desktop/theme-{theme}"/>
+            </map>
+        </property>
+    </bean>
+
+
+    <bean id="velocityTemplateRenderer" class="org.yoceflab.hybris.mailpreview.widgets.mailselector.renderer.VeloctityRenderer">
+        <property name="contextName" value="ctx"/>
+    </bean>
+	
+</beans>

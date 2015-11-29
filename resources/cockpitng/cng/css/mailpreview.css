@@ -1,0 +1,39 @@
+@IMPORT url("cockpit.css");
+@IMPORT url("codemirror.css");
+body {
+	background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAALUlEQVQImWNYtHzHf2S8aceZ/wzoAouW70AIwgTggsgCi5bv+M+ALrBo+Y7/AIsfTAo95vSpAAAAAElFTkSuQmCC) repeat ;
+
+}
+
+.yw-systemBarContainer .yw-logoContainer .z-toolbarbutton {
+	display: none;
+}
+
+.yw-systemBarContainer .yw-logoContainer {
+	background-position: 0 -28px;
+	width: 200px;
+	height: 26px;
+	margin-top: 5px;
+}
+
+.vmeditor-widget  .z-hlayout-inner {
+	width: 100%;
+}
+
+
+.vmeditor-widget  .z-textbox {
+	width: 100%;
+}
+
+.vmeditor-widget .CodeMirror {
+	height: 100%;
+	border:1px dashed #666 !important;
+    padding: 0;
+	margin: 0.5em;
+}
+
+.vmeditor-widget .vmeditor-legend{
+	font-weight: bold;
+	font-size: 1.2em;
+}
+

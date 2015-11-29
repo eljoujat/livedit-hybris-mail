@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.hybris.com/schema/cockpitng/widget-definition.xsd"
+	id="com.sqli.printemps.widgets.vmeditorwidget">
+	<name>mail selector Sample Widget</name>
+	<description>mailpreview Sample Widget</description>
+	<defaultTitle>mailpreview Sample Widget</defaultTitle>
+	<author>Youssef El Jaoujat</author>
+	<version>1.0</version>
+	<view src="vmeditorwidget.zul" />
+	<keywords>
+		<keyword>mailselector</keyword>
+	</keywords>
+	<controller class="org.yoceflab.hybris.mailpreview.widgets.vmeditor.controller.VmEditorController" />
+
+	<sockets>
+		<input id="vmTemplate" type="org.yoceflab.hybris.mailpreview.mailpreview.data.VmEmailTemplateData"/>
+		<output id="updateVmTemplate" type="org.yoceflab.hybris.mailpreview.mailpreview.data.VmEmailTemplateData"/>
+	</sockets>
+</widget-definition>
